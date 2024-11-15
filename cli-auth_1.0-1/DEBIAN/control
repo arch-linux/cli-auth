@@ -1,0 +1,10 @@
+Package: cli-auth
+Version: 1.0-1
+Section: utils
+Priority: optional
+Architecture: amd64
+Depends: libpam0g-dev
+Maintainer: Your Name archlinuxusa@gmail.com
+Description: PAM-based authentication utility
+ Command-line and programmatic authentication tool for Linux systems
+ that verifies user credentials against the system's PAM infrastructure.
