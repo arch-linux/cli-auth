@@ -16,7 +16,6 @@ A secure command-line and programmatic authentication tool for Linux systems tha
 
 The following packages are required to build the project:
 
-```bash
 sudo apt-get update
 sudo apt-get install build-essential libpam0g-dev
 Installation
@@ -62,6 +61,7 @@ int main() {
     
     return !result;
 }
+
 PHP Integration
 Using shell execution:
 
@@ -112,7 +112,7 @@ Security Considerations
 	•	Passwords containing special characters should be properly quoted
 	•	When using programmatically, ensure proper escaping of username and password inputs
 	•	The shared library maintains system-level security through PAM
-	•	Consider using the FFI interface in PHP for better security than shell execution
+ 
 Uninstallation
 To remove the application and all its components:
 
