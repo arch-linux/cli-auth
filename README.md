@@ -1,4 +1,5 @@
-# cli-auth
+
+# CLI-Auth
 
 A secure command-line and programmatic authentication tool for Linux systems that verifies user credentials against the system's PAM (Pluggable Authentication Modules) infrastructure.
 
@@ -16,37 +17,58 @@ A secure command-line and programmatic authentication tool for Linux systems tha
 
 The following packages are required to build the project:
 
+```bash
 sudo apt-get update
 sudo apt-get install build-essential libpam0g-dev
-Installation
-	1.	Clone the repository:
+```
 
-git clone https://github.com/yourusername/cli-auth.git
-cd cli-auth
-	2.	Build and install:
+## Installation
 
-make
-sudo make install
-This will:
-	•	Compile the command-line tool and shared library
-	•	Install the binary to /usr/local/bin/cli-auth
-	•	Install the shared library to /usr/local/lib/libcli-auth.so
-	•	Install the header file to /usr/local/include/cli-auth.h
-	•	Create and configure the PAM service file
-Usage
-Command Line Interface
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/cli-auth.git
+   cd cli-auth
+   ```
+
+2. Build and install:
+
+   ```bash
+   make
+   sudo make install
+   ```
+
+   This will:
+   - Compile the command-line tool and shared library
+   - Install the binary to `/usr/local/bin/cli-auth`
+   - Install the shared library to `/usr/local/lib/libcli-auth.so`
+   - Install the header file to `/usr/local/include/cli-auth.h`
+   - Create and configure the PAM service file
+
+## Usage
+
+### Command Line Interface
+
 Basic usage:
 
+```bash
 cli-auth username password
-With special characters or spaces in password:
+```
 
+With special characters or spaces in the password:
+
+```bash
 cli-auth username 'password with spaces!!'
 cli-auth username "complex@password#123"
-The program returns:
-	•	Exit code 0 and "OK" for successful authentication
-	•	Exit code 1 and "FAIL:[error message]" for failed authentication
-C Library Integration
+```
 
+The program returns:
+- Exit code `0` and `OK` for successful authentication
+- Exit code `1` and `FAIL:[error message]` for failed authentication
+
+### C Library Integration
+
+```c
 #include <cli-auth.h>
 
 int main() {
@@ -61,10 +83,13 @@ int main() {
     
     return !result;
 }
+```
 
-PHP Integration
-Using shell execution:
+### PHP Integration
 
+#### Using Shell Execution:
+
+```php
 <?php
 
 class AuthenticationService
@@ -79,8 +104,10 @@ class AuthenticationService
         return $returnVar === 0;
     }
 }
-Using FFI:
+```
+#### Using FFI:
 
+```php
 <?php
 
 class AuthenticationService
@@ -107,32 +134,50 @@ class AuthenticationService
         return $result === 1;
     }
 }
-Security Considerations
-	•	The command-line tool is installed with SUID permissions to allow PAM authentication
-	•	Passwords containing special characters should be properly quoted
-	•	When using programmatically, ensure proper escaping of username and password inputs
-	•	The shared library maintains system-level security through PAM
- 
-Uninstallation
+```
+
+## Security Considerations
+
+- The command-line tool is installed with SUID permissions to allow PAM authentication
+- Passwords containing special characters should be properly quoted
+- When using programmatically, ensure proper escaping of username and password inputs
+- The shared library maintains system-level security through PAM
+
+## Uninstallation
+
 To remove the application and all its components:
 
+```bash
 sudo make uninstall
-Development
-To modify the PAM authentication rules, edit /etc/pam.d/cli-auth after installation. The default configuration uses standard Unix authentication:
+```
 
+## Development
+
+To modify the PAM authentication rules, edit `/etc/pam.d/cli-auth` after installation. The default configuration uses standard Unix authentication:
+
+```plaintext
 #%PAM-1.0
 auth    required    pam_unix.so
 account required    pam_unix.so
-Contributing
-	1.	Fork the repository
-	2.	Create your feature branch (git checkout -b feature/amazing-feature)
-	3.	Commit your changes (git commit -m 'Add some amazing feature')
-	4.	Push to the branch (git push origin feature/amazing-feature)
-	5.	Open a Pull Request
-License
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
-Authors
-	•	Your Name your.email@example.com
-Acknowledgments
-	•	PAM development team
-	•	Linux authentication system maintainers
+
+## Authors
+
+- Your Name <your.email@example.com>
+
+## Acknowledgments
+
+- PAM development team
+- Linux authentication system maintainers
