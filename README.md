@@ -27,7 +27,7 @@ sudo apt-get install build-essential libpam0g-dev
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/cli-auth.git
+   git clone https://github.com/arch-linux/cli-auth.git
    cd cli-auth
    ```
 
